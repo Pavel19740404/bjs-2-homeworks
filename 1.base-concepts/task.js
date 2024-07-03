@@ -37,11 +37,11 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   };
   let lianAmount = amount - contribution;
   let timeNow = new Date();
-  let loanTerm = date - timeNow;
-  loanTerm = loanTerm / 1000 / 60 / 60 / 24 / 30;
+  let date = date - timeNow;
+  date = date / 1000 / 60 / 60 / 24 / 30;
   let monthlyPartPercent = (percent / 100) / 12;
-  let monthFee = lianAmount * (monthlyPartPercent + (monthlyPartPercent / (((1 + monthlyPartPercent) ** loanTerm) - 1)));
-  totalAmount = +(monthFee * loanTerm).toFixed(2);
+  let monthFee = lianAmount * (monthlyPartPercent + (monthlyPartPercent / (((1 + monthlyPartPercent) ** date) - 1)));
+  totalAmount = +(monthFee * date).toFixed(2);
   console.log(totalAmount);
   return totalAmount;
 }
