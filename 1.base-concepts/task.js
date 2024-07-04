@@ -36,15 +36,13 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     totalAmount = `Параметр "Сроки ипотеки" содержит неправильное значение ${date}`;
   };
   let lianAmount = amount - contribution;
-  let timeNow = new Date();
-  let loanTerm = date - timeNow;
   let monthFee = lianAmount * (monthlyPartPercent + (monthlyPartPercent / (((1 + monthlyPartPercent) ** date) - 1)));
   totalAmount = +(monthFee * date).toFixed(2);
- 
-	console.log(totalAmount); 
+  let monthlyPartPercent = (percent / 100) / 12;
+	console.log(totalAmount);
+	return totalAmount;
 }
 
-return totalAmount;
-}
+
 
 
