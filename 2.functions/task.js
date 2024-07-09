@@ -1,13 +1,13 @@
-'use strict'
+
 
 function getArrayParams(...arr) {
-  let min = arr[0];
-  let max = arr[0];
-  for (let num of arr) {
-    if (num > max) {
-        max = num;
-    }
-    if (num < min) {
+let min = arr[0];
+let max = arr[0];
+for (let num of arr) {
+if (num > max) {
+max = num;
+}
+  if (num < min) {
         min = num;
     }
   }
