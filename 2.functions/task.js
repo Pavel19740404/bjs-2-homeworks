@@ -1,22 +1,21 @@
 'use strict'
 
-function getArrayParams(...arr) {
+function getArrayParams(arr) {
   let min = Infinity;
   let max = -Infinity;
-  let total = 0;
-
+  let sum = 0;
+  let avg = 0;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < min) {
-      min = arr[i];
-    } if (arr[i] > max) {
+    sum = sum + arr[i];
+    if (arr[i] > max) {
       max = arr[i];
     }
-    total += arr[i];
+    if (arr[i] < min) {
+      min = arr[i];
+    }
   }
-
-  const avg = parseFloat((total / arr.length).toFixed(2));
-
-  return { min: min, max: max, avg: avg };
+  avg = parseFloat((sum / arr.length).toFixed(2));
+  return { min:min, max:max, avg:avg };
 }
 
 function summElementsWorker(...arr) {
