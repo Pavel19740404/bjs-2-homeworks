@@ -1,23 +1,21 @@
 'use strict'
 
 function getArrayParams(...arr) {
-  let min = arr[0];
-  let max = arr[0];
-  for (let num of arr) {
-    if (num > max) {
-        max = num;
+  let min = Infinity;
+  let max = -Infinity;
+  let total = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    } if (arr[i] > max) {
+      max = arr[i];
     }
-    if (num < min) {
-        min = num;
-    }
+    total += arr[i];
   }
-  const initialValue = 0;
-  const sumWithInitial = arr.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    initialValue
-  );
-  let sum = sumWithInitial;
-  let avg = +(sum / arr.length).toFixed(2);
+
+  const avg = parseFloat((total / arr.length).toFixed(2));
+
   return { min: min, max: max, avg: avg };
 }
 
