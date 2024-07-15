@@ -1,4 +1,5 @@
-unction cachingDecoratorNew(func) {
+//Задача № 1
+function cachingDecoratorNew(func) {
     let cache = [];
     function wrapper(...args) {
       const hash = md5(args);
@@ -15,6 +16,7 @@ unction cachingDecoratorNew(func) {
     }
     return wrapper;
   }
+  
 
   //Задача № 2
   function debounceDecoratorNew(func, delay) {
@@ -37,5 +39,3 @@ unction cachingDecoratorNew(func) {
     wrapper.allCount = 0;
     return wrapper;
   }
-  
-}
